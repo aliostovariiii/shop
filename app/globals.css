@@ -1,0 +1,339 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+===========================================
+فونت شبنم - Shabnam Persian Font
+===========================================
+استفاده: برای تمام متن‌های فارسی در سایت
+Usage: For all Persian texts in the website
+*/
+@font-face {
+  font-family: 'Shabnam';
+  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/Shabnam.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/Shabnam.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Shabnam';
+  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/Shabnam-Bold.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/Shabnam-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* 
+===========================================
+پالت رنگی پروژه - Project Color Palette
+===========================================
+*/
+:root {
+  /* رنگ‌های اصلی - Primary Colors */
+  --primary-color: #009688;        /* استفاده: دکمه‌های اصلی، لینک‌ها، آیکون‌های مهم */
+  --primary-hover: #00695c;        /* استفاده: حالت hover دکمه‌های اصلی */
+  --primary-light: #4db6ac;        /* استفاده: پس‌زمینه‌های ملایم، بج‌ها */
+  
+  /* رنگ‌های خاکستری - Gray Colors */
+  --gray-50: #f9fafb;              /* استفاده: پس‌زمینه‌های ملایم */
+  --gray-100: #f3f4f6;             /* استفاده: پس‌زمینه کارت‌ها */
+  --gray-200: #e5e7eb;             /* استفاده: حاشیه‌ها، خطوط جداکننده */
+  --gray-300: #d1d5db;             /* استفاده: حاشیه‌های فعال */
+  --gray-400: #9ca3af;             /* استفاده: متن‌های غیرفعال */
+  --gray-500: #6b7280;             /* استفاده: متن‌های ثانویه */
+  --gray-600: #4b5563;             /* استفاده: متن‌های معمولی */
+  --gray-700: #374151;             /* استفاده: متن‌های مهم */
+  --gray-800: #1f2937;             /* استفاده: عناوین */
+  --gray-900: #111827;             /* استفاده: متن‌های اصلی، عناوین مهم */
+  
+  /* رنگ‌های پایه - Base Colors */
+  --white: #ffffff;                /* استفاده: پس‌زمینه‌های سفید، متن روی پس‌زمینه تیره */
+  --black: #000000;                /* استفاده: متن‌های کنتراست بالا */
+  
+  /* رنگ‌های وضعیت - Status Colors */
+  --success: #10b981;              /* استفاده: پیام‌های موفقیت، وضعیت مثبت */
+  --warning: #f59e0b;              /* استفاده: هشدارها، اخطارها */
+  --error: #ef4444;                /* استفاده: خطاها، حذف */
+  --info: #3b82f6;                 /* استفاده: اطلاعات، لینک‌ها */
+  
+  /* فونت اصلی - Primary Font */
+  --font-primary: 'Shabnam', Tahoma, Arial, sans-serif;
+  
+  /* سایه‌ها - Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  
+  /* انتقال‌ها - Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* 
+===========================================
+تنظیمات کلی فارسی - Persian Global Settings
+===========================================
+*/
+* {
+  font-family: var(--font-primary);
+  direction: rtl;
+  text-align: right;
+}
+
+html, body {
+  font-family: var(--font-primary);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-900);
+}
+
+/* عناصر فرم - Form Elements */
+input, button, textarea, select {
+  font-family: inherit;
+}
+
+/* کلاس‌های جهت - Direction Classes */
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-primary);
+}
+
+/* 
+===========================================
+اسکرول افقی شیک - Elegant Horizontal Scroll
+===========================================
+استفاده: برای بخش‌هایی که نیاز به اسکرول افقی دارند
+*/
+.horizontal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--gray-200);
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  border-radius: 10px;
+  border: 2px solid var(--gray-100);
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, var(--primary-hover), var(--primary-color));
+}
+
+/* 
+===========================================
+کلاس‌های کمکی - Utility Classes
+===========================================
+*/
+.primary-color {
+  color: var(--primary-color);
+}
+
+.primary-bg {
+  background-color: var(--primary-color);
+}
+
+.simple-transition {
+  transition: var(--transition-normal);
+}
+
+.card-shadow {
+  box-shadow: var(--shadow-md);
+}
+
+.card-shadow:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.primary-hover:hover {
+  background-color: var(--primary-hover);
+}
+
+/* 
+===========================================
+کلاس‌های سفارشی کامپوننت‌ها - Custom Component Classes
+===========================================
+*/
+
+/* دکمه‌های اصلی - Primary Buttons */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: var(--transition-normal);
+  font-family: var(--font-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* کارت‌های محصول - Product Cards */
+.product-card {
+  background: var(--white);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  border: 1px solid var(--gray-200);
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* فرم‌های ورودی - Input Forms */
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 0.5rem;
+  font-family: var(--font-primary);
+  transition: var(--transition-fast);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.1);
+}
+
+/* نشانگرهای اسکرول - Scroll Indicators */
+.scroll-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--white);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.scroll-indicator:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.scroll-indicator-left {
+  left: -20px;
+}
+
+.scroll-indicator-right {
+  right: -20px;
+}
+
+/* 
+===========================================
+انیمیشن‌های ساده - Simple Animations
+===========================================
+*/
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+/* 
+===========================================
+ریسپانسیو - Responsive Design
+===========================================
+*/
+@media (max-width: 768px) {
+  .scroll-indicator {
+    display: none;
+  }
+  
+  .horizontal-scroll {
+    padding-bottom: 1rem;
+  }
+}
+
+/* 
+===========================================
+تنظیمات shadcn/ui - shadcn/ui Settings
+===========================================
+*/
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 174 100% 29%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 174 100% 29%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
